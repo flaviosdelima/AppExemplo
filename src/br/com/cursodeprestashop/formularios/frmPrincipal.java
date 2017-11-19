@@ -7,8 +7,11 @@ package br.com.cursodeprestashop.formularios;
 
 import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 import java.awt.BorderLayout;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.util.Locale;
+import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.metal.DefaultMetalTheme;
@@ -24,6 +27,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form frmPrincipal
      */
+    static GraphicsDevice device = GraphicsEnvironment
+        .getLocalGraphicsEnvironment().getScreenDevices()[0];
     public frmPrincipal()  {
          
         try {
@@ -37,6 +42,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         }
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        device.setFullScreenWindow(this);
     }
 
     /**
@@ -60,7 +67,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(800, 600));
-        setResizable(false);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
